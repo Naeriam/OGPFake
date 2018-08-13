@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#" lang="en">
+
+<!--
+    HTML for OGPFake
+
+    This HTML collect data for Google Analytics, and then, redirect to de destination page.
+    Also adds all necessary OGP tags for previsualization.
+
+    Noemi Escudero del Olmo, 2018, https://github.com/Naeriam
+-->
+
+<head lang="en">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ga_tracking_id}}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{ga_tracking_id}}');
+    </script>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Open Graph Protocol Fake</title>
+    <meta name="description" content="You can fake open graph protocol with me :)" />
+
+    <!-- Open Graph Protocol -->
+    <meta property="og:title" content="{{title}}" />
+    <meta property="og:description" content="{{description}}" />
+    <meta property="og:url" content="{{url}}" />
+    <meta property="og:image" content="{{image}}" />
+    <meta property="og:type" content="website" />
+
+    <!-- open graph protocol for TWITTER -->
+    <meta name="twitter:title" content="{{title}}" />
+    <meta name="twitter:description" content="{{description}}" />
+    <meta name="twitter:site" content="{{url}}" />
+    <meta name="twitter:image" content="{{image}}" />
+    <meta name="twitter:card" content="summary" />
+
+
+</head>
+<body>
+
+{% if errors %}
+{# Show a page error with info for resolve tag issues #}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <div class="container">
+        </br>
+        <div class="alert alert-danger" role="alert">
+          <h4 class="alert-heading">Wrong Configuration!</h4>
+          <p>Please, check your errors below:</p>
+            {% for error in errors %}
+                <li>{{error}}</li>
+            {% endfor %}
+          <hr>
+          <p class="mb-0 text-right">More info in <a href="https://github.com/Naeriam">Github</a>.</p>
+        </div>
+    </div>
+{% else %}
+{# Redirecting! =) #}
+    <script>
+        window.location.href = "{{url}}";
+    </script>
+{% endif %}
+
+</body>
+</html>

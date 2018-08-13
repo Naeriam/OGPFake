@@ -1,0 +1,7 @@
+{
+ "name": "OGPFake",
+ "description": "Customize/Add OGP information and Google Analytics to links",
+ "repository": "https://github.com/Naeriam/OGPFake",
+ "logo": "http://ogp.me/logo.png",
+ "keywords": ["google analytics", "ogp", "open graph protocol"]
+}
