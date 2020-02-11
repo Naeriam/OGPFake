@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "==2.1"
+django = "==2.2.10"
 pytz = "==2018.5"
 gunicorn = "*"
 django-heroku = "*"
